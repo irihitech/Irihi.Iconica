@@ -50,6 +50,7 @@
             VerticalScrollBarVisibility="Hidden">
             <u:Anchor
                 Name="NavAnchor"
+                IsAnimated="False"
                 TargetContainer="{Binding #IconsContainer}"
                 ItemsSource="{Binding Groups}"
                 AnchorIdMemberBinding="{Binding Category}">
