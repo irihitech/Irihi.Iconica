@@ -7,9 +7,9 @@ Avalonia icon libraries that ship popular open-source icon sets as **native, run
 | Package | NuGet | Icons | Icon source |
 |---|---|---|---|
 | [Irihi.Iconica.IconPark](src/Irihi.Iconica.IconPark) | Apache-2.0 | 2,600+ | [ByteDance IconPark](https://github.com/bytedance/iconpark) |
-| [Irihi.Iconica.Semi](src/Irihi.Iconica.Semi) | Apache-2.0 | 500+ | [Semi Design Icons](https://github.com/DouyinFE/semi-design) |
-| [Irihi.Iconica.Semi.Lab](src/Irihi.Iconica.Semi.Lab) | Apache-2.0 | 84 | [Semi Design Icons Lab](https://github.com/DouyinFE/semi-design) |
-| [Irihi.Iconica.TDesign](src/Irihi.Iconica.TDesign) | Apache-2.0 | 2,300+ | [Tencent TDesign Icons](https://github.com/Tencent/tdesign-icons) |
+| [Irihi.Iconica.Semi](src/Irihi.Iconica.Semi) | MIT | 500+ | [Semi Design Icons](https://github.com/DouyinFE/semi-design) |
+| [Irihi.Iconica.Semi.Lab](src/Irihi.Iconica.Semi.Lab) | MIT | 84 | [Semi Design Icons Lab](https://github.com/DouyinFE/semi-design) |
+| [Irihi.Iconica.TDesign](src/Irihi.Iconica.TDesign) | MIT | 2,300+ | [Tencent TDesign Icons](https://github.com/Tencent/tdesign-icons) |
 
 ## Why this library?
 
@@ -135,7 +135,11 @@ The demo provides a searchable gallery of all icons with live customization opti
 
 ## License
 
-This repository is licensed under the **Apache License 2.0** — see [LICENSE](LICENSE).
+This repository is licensed under the **MIT License** — see [LICENSE](LICENSE).
+
+The `Irihi.Iconica.IconPark` package is the exception: it stays under the
+**Apache License 2.0** to match its upstream license — see
+[src/Irihi.Iconica.IconPark/LICENSE](src/Irihi.Iconica.IconPark/LICENSE).
 
 This product includes icons from:
 

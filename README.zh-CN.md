@@ -7,9 +7,9 @@
 | 包 | NuGet | 图标数 | 图标来源 |
 |---|---|---|---|
 | [Irihi.Iconica.IconPark](src/Irihi.Iconica.IconPark) | Apache-2.0 | 2600+ | [字节跳动 IconPark](https://github.com/bytedance/iconpark) |
-| [Irihi.Iconica.Semi](src/Irihi.Iconica.Semi) | Apache-2.0 | 500+ | [Semi Design Icons](https://github.com/DouyinFE/semi-design) |
-| [Irihi.Iconica.Semi.Lab](src/Irihi.Iconica.Semi.Lab) | Apache-2.0 | 84 | [Semi Design Icons Lab](https://github.com/DouyinFE/semi-design) |
-| [Irihi.Iconica.TDesign](src/Irihi.Iconica.TDesign) | Apache-2.0 | 2300+ | [腾讯 TDesign Icons](https://github.com/Tencent/tdesign-icons) |
+| [Irihi.Iconica.Semi](src/Irihi.Iconica.Semi) | MIT | 500+ | [Semi Design Icons](https://github.com/DouyinFE/semi-design) |
+| [Irihi.Iconica.Semi.Lab](src/Irihi.Iconica.Semi.Lab) | MIT | 84 | [Semi Design Icons Lab](https://github.com/DouyinFE/semi-design) |
+| [Irihi.Iconica.TDesign](src/Irihi.Iconica.TDesign) | MIT | 2300+ | [腾讯 TDesign Icons](https://github.com/Tencent/tdesign-icons) |
 
 ## 为什么选择这个库？
 
@@ -134,7 +134,9 @@ Demo 提供全部图标的可搜索画廊，并支持实时定制预览。
 
 ## 许可证
 
-本仓库采用 **Apache License 2.0** 许可——详见 [LICENSE](LICENSE)。
+本仓库采用 **MIT License** 许可——详见 [LICENSE](LICENSE)。
+
+`Irihi.Iconica.IconPark` 包是例外：为与上游协议保持一致，该包沿用 **Apache License 2.0**——详见 [src/Irihi.Iconica.IconPark/LICENSE](src/Irihi.Iconica.IconPark/LICENSE)。
 
 本产品包含以下第三方图标：
 

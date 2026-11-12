@@ -16,7 +16,10 @@ Answer these from the upstream sources first; they drive every later step:
   mismatches in the metadata (e.g. Semi's `meta.json` calls an icon
   `a_i_bell_level_1` while the SVG file is `ai_bell_level_1.svg`) — normalize.
 - **License**: needed for the `NOTICE` file. Upstream must be redistributable
-  (MIT/Apache-2.0 style); record upstream repo URL and license.
+  (MIT/Apache-2.0 style); record upstream repo URL and license. The package
+  itself defaults to MIT (`PackageLicenseExpression`) to match the repository;
+  if the upstream is Apache-2.0, keep the package Apache-2.0 and pack its own
+  Apache-2.0 `LICENSE` file alongside the root MIT one (see IconPark).
 - **Naming**: file name → C# class name. PascalCase split on the set's
   separators (`-` for TDesign, `_` and stray `-` for Semi); prefix class names
   starting with a digit with `_`. Check for collisions.
