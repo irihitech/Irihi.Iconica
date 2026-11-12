@@ -22,8 +22,8 @@
     </ItemGroup>
 
     <ItemGroup>
-        <None Include="../../irihi.png" Pack="true" PackagePath=""/>
-        <None Include="NOTICE" Pack="true" PackagePath=""/>
-        <None Include="README.md" Pack="true" PackagePath=""/>
+        <None Include="../../irihi.png" Pack="true" Visible="false"/>
+        <None Include="NOTICE" Pack="true" Visible="false"/>
+        <None Include="README.md" Pack="true" Visible="false"/>
     </ItemGroup>
 </Project>
