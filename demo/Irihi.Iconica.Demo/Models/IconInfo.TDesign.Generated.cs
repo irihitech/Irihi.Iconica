@@ -5311,6 +5311,8 @@ public partial class IconInfo
         },
         new IconInfo()
         {
+            Category = "Other",
+            CategoryChinese = "其他",
             ClassName = "Check1",
             Name = "check-1",
             Creator = () => new Irihi.Iconica.TDesign.Icons.Check1(),
@@ -15383,6 +15385,8 @@ public partial class IconInfo
         },
         new IconInfo()
         {
+            Category = "Other",
+            CategoryChinese = "其他",
             ClassName = "ListNumbered",
             Name = "list-numbered",
             Creator = () => new Irihi.Iconica.TDesign.Icons.ListNumbered(),
@@ -21149,6 +21153,8 @@ public partial class IconInfo
         },
         new IconInfo()
         {
+            Category = "Other",
+            CategoryChinese = "其他",
             ClassName = "Remove1",
             Name = "remove-1",
             Creator = () => new Irihi.Iconica.TDesign.Icons.Remove1(),
