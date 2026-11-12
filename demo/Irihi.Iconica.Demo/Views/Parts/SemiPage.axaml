@@ -1,0 +1,41 @@
+<UserControl
+    x:Class="Irihi.Iconica.Demo.Views.SemiPage"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:views="clr-namespace:Irihi.Iconica.Demo.Views"
+    xmlns:vm="using:Irihi.Iconica.Demo.ViewModels"
+    x:DataType="vm:SemiPageViewModel"
+    mc:Ignorable="d">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.ThemeDictionaries>
+                <ResourceDictionary x:Key="Light">
+                    <SolidColorBrush x:Key="PrimaryColor" Color="Black" />
+                    <SolidColorBrush x:Key="SecondaryColor" Color="#A647FF" />
+                </ResourceDictionary>
+                <ResourceDictionary x:Key="Dark">
+                    <SolidColorBrush x:Key="PrimaryColor" Color="White" />
+                    <SolidColorBrush x:Key="SecondaryColor" Color="#A647FF" />
+                </ResourceDictionary>
+            </ResourceDictionary.ThemeDictionaries>
+            <!-- Drives the detail preview only; the grid renders icons at the
+                 24px control default. Kept in sync with SemiSettingPanelViewModel
+                 and updated at runtime by the page code-behind. -->
+            <x:Double x:Key="IconSize">24</x:Double>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid ColumnDefinitions="*, Auto" RowDefinitions="Auto, *">
+        <Border
+            Grid.Row="0"
+            Grid.RowSpan="2"
+            Grid.Column="0"
+            Padding="16"
+            Theme="{DynamicResource CardBorder}">
+            <views:SemiIconViewer DataContext="{Binding Viewer}" />
+        </Border>
+        <views:IconDetailView Grid.Row="0" Grid.Column="1" DataContext="{Binding Detail}" />
+        <views:SemiSettingPanelView Grid.Row="1" Grid.Column="1" DataContext="{Binding SettingPanel}" />
+    </Grid>
+</UserControl>

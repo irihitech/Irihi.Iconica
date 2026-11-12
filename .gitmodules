@@ -4,3 +4,6 @@
 [submodule "tdesign-icons"]
 	path = external/tdesign-icons
 	url = git@github.com:Tencent/tdesign-icons.git
+[submodule "external/semi-design"]
+	path = external/semi-design
+	url = git@github.com:douyinfe/semi-design.git

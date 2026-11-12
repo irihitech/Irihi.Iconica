@@ -19,6 +19,14 @@ on:
         description: 'Pack Irihi.Iconica.IconPark'
         default: false
         type: boolean
+      Irihi_Iconica_Semi:
+        description: 'Pack Irihi.Iconica.Semi'
+        default: true
+        type: boolean
+      Irihi_Iconica_Semi_Lab:
+        description: 'Pack Irihi.Iconica.Semi.Lab'
+        default: true
+        type: boolean
       Irihi_Iconica_TDesign:
         description: 'Pack Irihi.Iconica.TDesign'
         default: true
@@ -45,6 +53,8 @@ jobs:
       Upload_to_NuGet: ${{ inputs.Upload_to_NuGet }}
       Irihi_Iconica_Core: ${{ inputs.Irihi_Iconica_Core }}
       Irihi_Iconica_IconPark: ${{ inputs.Irihi_Iconica_IconPark }}
+      Irihi_Iconica_Semi: ${{ inputs.Irihi_Iconica_Semi }}
+      Irihi_Iconica_Semi_Lab: ${{ inputs.Irihi_Iconica_Semi_Lab }}
       Irihi_Iconica_TDesign: ${{ inputs.Irihi_Iconica_TDesign }}
     secrets: inherit
 

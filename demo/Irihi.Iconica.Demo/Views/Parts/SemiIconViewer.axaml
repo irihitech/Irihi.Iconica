@@ -1,0 +1,112 @@
+<UserControl
+    x:Class="Irihi.Iconica.Demo.Views.SemiIconViewer"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:controls="clr-namespace:Irihi.Iconica.Demo.Controls"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:semiicon="https://irihi.tech/iconica/semi"
+    xmlns:u="https://irihi.tech/ursa"
+    xmlns:viewModels="clr-namespace:Irihi.Iconica.Demo.ViewModels"
+    xmlns:views="clr-namespace:Irihi.Iconica.Demo.Views"
+    Name="root"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    x:DataType="viewModels:IconViewerViewModel"
+    mc:Ignorable="d">
+    <UserControl.Styles>
+        <!-- Grid icons render at the 24px control default; only the theme colors
+             follow the setting panel here. -->
+        <Style Selector=":is(semiicon|SemiIconBase)">
+            <Setter Property="Primary" Value="{DynamicResource PrimaryColor}" />
+            <Setter Property="Secondary" Value="{DynamicResource SecondaryColor}" />
+        </Style>
+    </UserControl.Styles>
+    <Grid RowDefinitions="Auto, *" ColumnDefinitions="Auto, *">
+        <StackPanel Grid.Row="0" Grid.ColumnSpan="2">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock
+                    Margin="8"
+                    HorizontalAlignment="Left"
+                    Classes="H3"
+                    Text="{Binding Title}"
+                    Theme="{DynamicResource TitleTextBlock}" />
+                <u:Badge Classes="Success" Header="AOT Compatible" />
+            </StackPanel>
+            <TextBlock
+                Margin="8"
+                HorizontalAlignment="Left"
+                Text="灵活多变的Avalonia自绘图标库" />
+            <TextBox
+                MaxWidth="600"
+                Margin="8"
+                Classes="ClearButton"
+                Text="{Binding SearchInput}"
+                PlaceholderText="输入图标名称或关键词">
+                <TextBox.InnerLeftContent>
+                    <PathIcon
+                        Theme="{DynamicResource InnerPathIcon}"
+                        Data="{DynamicResource SemiIconSearch}" />
+                </TextBox.InnerLeftContent>
+            </TextBox>
+        </StackPanel>
+        <ScrollViewer
+            Grid.Row="1"
+            Grid.Column="0"
+            Margin="8,0,0,0"
+            VerticalScrollBarVisibility="Hidden">
+            <u:Anchor
+                Name="NavAnchor"
+                IsAnimated="False"
+                TargetContainer="{Binding #IconsContainer}"
+                ItemsSource="{Binding Groups}"
+                AnchorIdMemberBinding="{Binding Category}">
+                <u:Anchor.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Padding="8 4" Text="{Binding CategoryChinese}" />
+                    </DataTemplate>
+                </u:Anchor.ItemTemplate>
+            </u:Anchor>
+        </ScrollViewer>
+        <ScrollViewer
+            Name="IconsContainer"
+            Grid.Row="1"
+            Grid.Column="1"
+            Background="{DynamicResource SemiBackground0}">
+            <ItemsControl Margin="24" ItemsSource="{Binding Groups}">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel />
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Margin="0,16">
+                            <Expander Theme="{DynamicResource CategoryExpander}">
+                                <Expander.Header>
+                                    <TextBlock
+                                        u:Anchor.Id="{Binding Category}"
+                                        Text="{Binding CategoryDisplay}" />
+                                </Expander.Header>
+                                <ItemsControl ItemsSource="{Binding Items}">
+                                    <ItemsControl.ItemsPanel>
+                                        <ItemsPanelTemplate>
+                                            <controls:VirtualizingUniformGrid
+                                                ItemHeight="120"
+                                                Columns="{Binding #root.ColumnCount}" />
+                                        </ItemsPanelTemplate>
+                                    </ItemsControl.ItemsPanel>
+                                    <ItemsControl.ItemTemplate>
+                                        <DataTemplate>
+                                            <views:SemiIconBriefView />
+                                        </DataTemplate>
+                                    </ItemsControl.ItemTemplate>
+                                </ItemsControl>
+                            </Expander>
+                        </StackPanel>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </ScrollViewer>
+    </Grid>
+</UserControl>
