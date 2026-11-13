@@ -24,6 +24,15 @@ public abstract class DrawingElement
     /// </summary>
     public IPen? Pen { get; set; }
 
+    /// <summary>
+    /// Geometry clip applied around this element, in the same coordinate space as the
+    /// element (SVG clip-path / alpha mask).
+    /// </summary>
+    public Geometry? Clip { get; set; }
+
+    /// <summary>Element opacity (0-1) pushed around this element (SVG opacity).</summary>
+    public double? Opacity { get; set; }
+
     /// <summary>Per-element stroke thickness override applied to the resolved pen.</summary>
     public double? StrokeThickness { get; set; }
 

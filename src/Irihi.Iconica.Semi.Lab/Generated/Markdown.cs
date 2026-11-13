@@ -26,6 +26,7 @@ public class Markdown : SemiLabIconBase
             X = 18,
             Y = 15,
             Rx = 1,
+            Opacity = 0.5,
         },
         new RectDrawingElement()
         {

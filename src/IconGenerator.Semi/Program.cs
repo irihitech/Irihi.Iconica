@@ -70,7 +70,9 @@ void ProcessFile(string svgFile, bool isLab)
         var (viewBoxWidth, viewBoxHeight) = ParseViewBox(root.GetAttribute("viewBox"));
 
         var elements = new List<SvgElement>();
-        WalkElements(root, elements);
+        var clipDefs = new Dictionary<string, SvgElement>();
+        CollectClipDefs(root, clipDefs);
+        WalkElements(root, elements, clipDefs, inheritedClip: null, viewBoxWidth, viewBoxHeight);
         if (elements.Count == 0)
             throw new NotSupportedException("No drawable elements found.");
 
@@ -118,7 +120,8 @@ void ProcessFile(string svgFile, bool isLab)
 }
 
 // Intermediate SVG shape representation, shared by both emitters.
-void WalkElements(XmlElement parent, List<SvgElement> result)
+void WalkElements(XmlElement parent, List<SvgElement> result, Dictionary<string, SvgElement> clipDefs,
+    SvgElement? inheritedClip, double viewBoxWidth, double viewBoxHeight)
 {
     foreach (var node in parent.ChildNodes)
     {
@@ -127,22 +130,80 @@ void WalkElements(XmlElement parent, List<SvgElement> result)
         switch (element.Name)
         {
             case "defs":
-                // Gradient/clip definitions are not drawn; referenced gradients are
-                // expressed through brush slots and clipPaths are 24x24 export noise.
+                // Gradient definitions are not drawn; referenced gradients are
+                // expressed through brush slots. Clip/mask definitions were already
+                // collected by CollectClipDefs.
+                continue;
+            case "clipPath":
+            case "mask":
+                // Never rendered directly; referenced through clip-path/mask attributes.
                 continue;
             case "g":
-                WalkElements(element, result);
+            {
+                var groupClip = ResolveClip(element, clipDefs, viewBoxWidth, viewBoxHeight) ?? inheritedClip;
+                WalkElements(element, result, clipDefs, groupClip, viewBoxWidth, viewBoxHeight);
                 continue;
+            }
             case "path":
             case "circle":
             case "ellipse":
             case "rect":
             case "line":
-                result.Add(ParseShape(element));
+            {
+                var shape = ParseShape(element);
+                shape.ClipShape = ResolveClip(element, clipDefs, viewBoxWidth, viewBoxHeight) ?? inheritedClip;
+                result.Add(shape);
                 break;
+            }
         }
     }
 }
+
+// Clip/mask definitions can appear anywhere (inside or outside defs); collect them in
+// a separate pass so references never depend on document order.
+void CollectClipDefs(XmlElement parent, Dictionary<string, SvgElement> clipDefs)
+{
+    foreach (var node in parent.ChildNodes)
+    {
+        if (node is not XmlElement element) continue;
+        if (element.Name is "clipPath" or "mask")
+        {
+            var id = element.GetAttribute("id");
+            var shape = element.ChildNodes.OfType<XmlElement>()
+                .FirstOrDefault(child => child.Name is "path" or "rect" or "circle" or "ellipse");
+            if (id.Length > 0 && shape is not null)
+                clipDefs[id] = ParseShape(shape);
+            continue;
+        }
+
+        CollectClipDefs(element, clipDefs);
+    }
+}
+
+// Resolves an element's clip-path/mask attribute to a clip shape. Returns null when
+// the attribute is absent or the clip is the full-viewBox rect Figma exports as noise.
+SvgElement? ResolveClip(XmlElement element, Dictionary<string, SvgElement> clipDefs,
+    double viewBoxWidth, double viewBoxHeight)
+{
+    foreach (var attribute in new[] { "clip-path", "mask" })
+    {
+        var reference = element.GetAttribute(attribute);
+        if (reference.Length == 0) continue;
+        var match = Regex.Match(reference, @"url\(#([^)]+)\)");
+        if (!match.Success || !clipDefs.TryGetValue(match.Groups[1].Value, out var clip))
+            throw new NotSupportedException($"Unresolved {attribute} reference: {reference}");
+        if (IsFullViewBoxRect(clip, viewBoxWidth, viewBoxHeight)) return null;
+        return clip;
+    }
+
+    return null;
+}
+
+static bool IsFullViewBoxRect(SvgElement clip, double viewBoxWidth, double viewBoxHeight)
+    => clip.Kind == "rect"
+       && Num(clip.X) == 0 && Num(clip.Y) == 0
+       && Num(clip.Width) == viewBoxWidth && Num(clip.Height) == viewBoxHeight
+       && clip.Rx.Length == 0 && clip.Ry.Length == 0;
 
 SvgElement ParseShape(XmlElement e)
 {
@@ -156,6 +217,7 @@ SvgElement ParseShape(XmlElement e)
         LineJoin = e.GetAttribute("stroke-linejoin"),
         FillRule = e.GetAttribute("fill-rule"),
         Transform = e.GetAttribute("transform"),
+        Opacity = e.GetAttribute("opacity"),
     };
 
     switch (e.Name)
@@ -387,7 +449,44 @@ static void AppendShapeBody(StringBuilder sb, SvgElement element)
 
     var matrix = CreateMatrix(element.Transform);
     if (matrix is not null) sb.AppendLine($"            Transform = {matrix},");
+    if (element.Opacity.Length > 0)
+        sb.AppendLine($"            Opacity = {Format(Num(element.Opacity))},");
+    if (element.ClipShape is { } clip)
+        sb.AppendLine($"            Clip = {ClipGeometryExpression(clip)},");
     sb.AppendLine("        },");
+}
+
+// Emits a geometry expression for a clipPath/mask shape. Masks here are opaque
+// single-shape alpha masks, which are exactly geometry clips.
+static string ClipGeometryExpression(SvgElement clip)
+{
+    if (clip.Transform.Length > 0)
+        throw new NotSupportedException("Clips with transforms are not supported.");
+    switch (clip.Kind)
+    {
+        case "rect":
+            if (clip.Rx.Length > 0 || clip.Ry.Length > 0)
+                throw new NotSupportedException("Rounded clip rects are not supported.");
+            return $"new RectangleGeometry(new Rect({Format(Num(clip.X))}, {Format(Num(clip.Y))}, " +
+                   $"{Format(Num(clip.Width))}, {Format(Num(clip.Height))}))";
+        case "circle":
+        {
+            var r = Num(clip.R.Length > 0 ? clip.R : clip.Rx);
+            var cx = Num(clip.Cx);
+            var cy = Num(clip.Cy);
+            return $"new EllipseGeometry(new Rect({Format(cx - r)}, {Format(cy - r)}, " +
+                   $"{Format(2 * r)}, {Format(2 * r)}))";
+        }
+        case "ellipse":
+            return $"new EllipseGeometry(new Rect({Format(Num(clip.Cx) - Num(clip.Rx))}, " +
+                   $"{Format(Num(clip.Cy) - Num(clip.Ry))}, {Format(2 * Num(clip.Rx))}, {Format(2 * Num(clip.Ry))}))";
+        case "path":
+            if (clip.D.Length == 0)
+                throw new NotSupportedException("Clip path without a d attribute.");
+            return GeometryExpression(clip.D, fillRule: null);
+        default:
+            throw new NotSupportedException($"Unsupported clip shape: {clip.Kind}");
+    }
 }
 
 static string GenerateDemoDocument(List<IconInfo> icons)
@@ -599,4 +698,6 @@ class SvgElement
     public string LineJoin { get; set; } = string.Empty;
     public string FillRule { get; set; } = string.Empty;
     public string Transform { get; set; } = string.Empty;
+    public string Opacity { get; set; } = string.Empty;
+    public SvgElement? ClipShape { get; set; }
 }
