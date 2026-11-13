@@ -94,15 +94,30 @@ public partial class ExportViewModel : ObservableObject
                  """;
         }
 
-        element =
-            $"""
-             {element}
-                 StrokeWidth="{_settings.StrokeWidth}"
-                 LineCap="Round"
-                 LineJoin="Round"
-                 Mode="{_settings.Mode}" />
-             """;
-        Icon = element;
+        // Only emit attributes the icon type actually has (e.g. Semi lab icons have no
+        // stroke properties, and sets without color modes produce no Mode attribute).
+        var hasStroke = _iconInfo.IconType?.GetProperty("StrokeWidth") is not null;
+        if (hasStroke)
+        {
+            element =
+                $"""
+                 {element}
+                     StrokeWidth="{_settings.StrokeWidth}"
+                     LineCap="Round"
+                     LineJoin="Round"
+                 """;
+        }
+
+        if (!string.IsNullOrEmpty(_settings.Mode))
+        {
+            element =
+                $"""
+                 {element}
+                     Mode="{_settings.Mode}"
+                 """;
+        }
+
+        Icon = $"{element} />";
     }
 
     partial void OnUseLocalColorChanged(bool value)

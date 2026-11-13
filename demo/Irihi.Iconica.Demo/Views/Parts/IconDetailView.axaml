@@ -6,6 +6,8 @@
     xmlns:dataTemplates="clr-namespace:Irihi.Iconica.Demo.DataTemplates"
     xmlns:iconpark="https://irihi.tech/iconica/iconpark"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:semiicon="https://irihi.tech/iconica/semi"
+    xmlns:semilabicon="https://irihi.tech/iconica/semi/lab"
     xmlns:tdicon="https://irihi.tech/iconica/tdesign"
     xmlns:u="https://irihi.tech/ursa"
     xmlns:viewModels="clr-namespace:Irihi.Iconica.Demo.ViewModels"
@@ -33,6 +35,16 @@
             <Setter Property="Fill1" Value="{DynamicResource Fill1Color}" />
             <Setter Property="Stroke2" Value="{DynamicResource Stroke2Color}" />
             <Setter Property="Fill2" Value="{DynamicResource Fill2Color}" />
+        </Style>
+        <Style Selector=":is(semiicon|SemiIconBase)">
+            <Setter Property="Width" Value="{DynamicResource IconSize}" />
+            <Setter Property="Height" Value="{DynamicResource IconSize}" />
+            <Setter Property="Primary" Value="{DynamicResource PrimaryColor}" />
+            <Setter Property="Secondary" Value="{DynamicResource SecondaryColor}" />
+        </Style>
+        <Style Selector=":is(semilabicon|SemiLabIconBase)">
+            <Setter Property="Width" Value="{DynamicResource IconSize}" />
+            <Setter Property="Height" Value="{DynamicResource IconSize}" />
         </Style>
     </UserControl.Styles>
     <Border Theme="{DynamicResource CardBorder}">

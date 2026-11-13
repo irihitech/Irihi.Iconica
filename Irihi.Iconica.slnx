@@ -17,8 +17,11 @@
         <File Path="demo/Directory.Build.targets"/>
     </Folder>
     <Project Path="src/IconGenerator.IconPark/IconGenerator.IconPark.csproj"/>
+    <Project Path="src/IconGenerator.Semi/IconGenerator.Semi.csproj"/>
     <Project Path="src/IconGenerator.TDesign/IconGenerator.TDesign.csproj"/>
     <Project Path="src/Irihi.Iconica.Core/Irihi.Iconica.Core.csproj"/>
     <Project Path="src/Irihi.Iconica.IconPark/Irihi.Iconica.IconPark.csproj"/>
+    <Project Path="src/Irihi.Iconica.Semi/Irihi.Iconica.Semi.csproj"/>
+    <Project Path="src/Irihi.Iconica.Semi.Lab/Irihi.Iconica.Semi.Lab.csproj"/>
     <Project Path="src/Irihi.Iconica.TDesign/Irihi.Iconica.TDesign.csproj"/>
 </Solution>

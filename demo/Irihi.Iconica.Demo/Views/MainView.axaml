@@ -17,5 +17,8 @@
         <views:TDesignPage
             DataContext="{Binding TDesignPage}"
             IsVisible="{Binding $parent[UserControl].((vm:MainWindowViewModel)DataContext).TDesignPageVisible}" />
+        <views:SemiPage
+            DataContext="{Binding SemiPage}"
+            IsVisible="{Binding $parent[UserControl].((vm:MainWindowViewModel)DataContext).SemiPageVisible}" />
     </Panel>
 </UserControl>

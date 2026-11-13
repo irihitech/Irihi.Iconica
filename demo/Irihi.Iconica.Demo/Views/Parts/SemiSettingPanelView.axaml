@@ -1,0 +1,137 @@
+<UserControl
+    x:Class="Irihi.Iconica.Demo.Views.SemiSettingPanelView"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:u="https://irihi.tech/ursa"
+    xmlns:viewModels="clr-namespace:Irihi.Iconica.Demo.ViewModels"
+    xmlns:converters="clr-namespace:Avalonia.Controls.Converters;assembly=Avalonia.Controls.ColorPicker"
+    Width="400"
+    x:DataType="viewModels:SemiSettingPanelViewModel"
+    mc:Ignorable="d">
+    <UserControl.Resources>
+        <converters:ColorToHexConverter x:Key="SettingColorToHexConverter" AlphaPosition="Trailing" />
+    </UserControl.Resources>
+    <Design.DataContext>
+        <viewModels:SemiSettingPanelViewModel />
+    </Design.DataContext>
+    <Border Theme="{DynamicResource CardBorder}">
+        <ScrollViewer Theme="{DynamicResource StaticScrollViewer}">
+            <u:Form HorizontalAlignment="Stretch">
+                <u:FormItem Label="图标大小">
+                    <DockPanel LastChildFill="True">
+                        <u:NumericDoubleUpDown
+                            Width="100"
+                            AllowDrag="True"
+                            DockPanel.Dock="Right"
+                            Maximum="{Binding #size.Maximum}"
+                            Minimum="{Binding #size.Minimum}"
+                            Value="{Binding #size.Value}" />
+                        <Slider
+                            Name="size"
+                            Margin="0,0,8,0"
+                            HorizontalAlignment="Stretch"
+                            VerticalAlignment="Center"
+                            IsSnapToTickEnabled="True"
+                            Maximum="128"
+                            Minimum="12"
+                            TickFrequency="1"
+                            Value="{Binding Size}" />
+                    </DockPanel>
+                </u:FormItem>
+                <u:SelectionList
+                    Name="group"
+                    u:FormItem.Label="图标族"
+                    ItemsSource="{Binding Groups}"
+                    SelectedItem="{Binding SelectedGroup}">
+                    <u:SelectionList.Styles>
+                        <Style Selector="ListBoxItem">
+                            <Setter Property="Padding" Value="4" />
+                            <Setter Property="Margin" Value="4" />
+                        </Style>
+                    </u:SelectionList.Styles>
+                    <u:SelectionList.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <UniformGrid Rows="1" Columns="4" />
+                        </ItemsPanelTemplate>
+                    </u:SelectionList.ItemsPanel>
+                </u:SelectionList>
+                <u:FormItem NoLabel="True">
+                    <UniformGrid Columns="2">
+                        <UniformGrid.Styles>
+                            <Style Selector="ColorPicker">
+                                <Setter Property="Padding" Value="0" />
+                            </Style>
+                            <Style Selector="ColorPicker DropDownButton">
+                                <Setter Property="Padding" Value="0" />
+                                <Setter Property="HorizontalAlignment" Value="Stretch" />
+                                <Style Selector="^ /template/ PathIcon">
+                                    <Setter Property="IsVisible" Value="False" />
+                                </Style>
+                            </Style>
+                            <Style Selector="Grid.Root">
+                                <Setter Property="Margin" Value="8 4" />
+                            </Style>
+                        </UniformGrid.Styles>
+                        <Grid
+                            Classes="Root"
+                            ColumnDefinitions="Auto, *"
+                            RowDefinitions="*, *">
+                            <TextBlock
+                                Grid.Row="0"
+                                Grid.Column="0"
+                                VerticalAlignment="Center"
+                                Text="主色" />
+                            <SelectableTextBlock
+                                Grid.Row="0"
+                                Grid.Column="1"
+                                Margin="8,0,0,0"
+                                HorizontalAlignment="Right"
+                                VerticalAlignment="Center"
+                                Text="{Binding PrimaryColor,Converter={StaticResource SettingColorToHexConverter},ConverterParameter={x:False},StringFormat='#{0}'}" />
+                            <ColorPicker
+                                Grid.Row="1"
+                                Grid.Column="0"
+                                Grid.ColumnSpan="2"
+                                Width="{x:Static x:Double.NaN}"
+                                HorizontalAlignment="Stretch"
+                                Color="{Binding PrimaryColor}" />
+                        </Grid>
+                        <Grid
+                            Classes="Root"
+                            ColumnDefinitions="Auto, *"
+                            RowDefinitions="*, *"
+                            IsVisible="{Binding ShowSecondaryColor}">
+                            <TextBlock
+                                Grid.Row="0"
+                                Grid.Column="0"
+                                VerticalAlignment="Center"
+                                Text="强调色" />
+                            <SelectableTextBlock
+                                Grid.Row="0"
+                                Grid.Column="1"
+                                Margin="8,0,0,0"
+                                HorizontalAlignment="Right"
+                                VerticalAlignment="Center"
+                                Text="{Binding SecondaryColor,Converter={StaticResource SettingColorToHexConverter},ConverterParameter={x:False},StringFormat='#{0}'}" />
+                            <ColorPicker
+                                Grid.Row="1"
+                                Grid.Column="0"
+                                Grid.ColumnSpan="2"
+                                Width="{x:Static x:Double.NaN}"
+                                HorizontalAlignment="Stretch"
+                                Color="{Binding SecondaryColor}" />
+                        </Grid>
+                    </UniformGrid>
+                </u:FormItem>
+                <Button
+                    HorizontalAlignment="Stretch"
+                    u:FormItem.NoLabel="True"
+                    Classes="Tertiary"
+                    Command="{Binding ResetCommand}"
+                    Content="还原色彩" />
+            </u:Form>
+        </ScrollViewer>
+    </Border>
+</UserControl>

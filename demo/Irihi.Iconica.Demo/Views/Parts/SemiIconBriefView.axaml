@@ -1,0 +1,40 @@
+<UserControl
+    x:Class="Irihi.Iconica.Demo.Views.SemiIconBriefView"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:dataTemplates="clr-namespace:Irihi.Iconica.Demo.DataTemplates"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:models="clr-namespace:Irihi.Iconica.Demo.Models"
+    x:DataType="models:IconInfo"
+    mc:Ignorable="d">
+    <!-- Square-ish bordered card following the Semi Design icon site. The stack
+         is top-anchored at a fixed offset: every card's glyph sits at the same
+         (lowered) Y, the name hugs it 8px below, and one-line names share the
+         first line of two-line names. Cell size comes from the viewer's
+         ItemHeight / column divisor. -->
+    <Border
+        Margin="4"
+        Padding="0"
+        Classes="Hover"
+        Cursor="Hand"
+        PointerPressed="OnPointerPressed"
+        Theme="{DynamicResource CardBorder}">
+        <StackPanel Margin="6,36,6,0" Spacing="8">
+            <ContentControl
+                HorizontalAlignment="Center"
+                Content="{Binding}"
+                ContentTemplate="{x:Static dataTemplates:IconDataTemplate.Instance}" />
+            <!-- Semi's icon site wraps long names onto a second line instead of
+                 trimming; ellipsis only kicks in past two lines. -->
+            <TextBlock
+                Classes="Secondary"
+                FontSize="12"
+                MaxLines="2"
+                Text="{Binding ClassName}"
+                TextAlignment="Center"
+                TextTrimming="CharacterEllipsis"
+                TextWrapping="Wrap" />
+        </StackPanel>
+    </Border>
+</UserControl>

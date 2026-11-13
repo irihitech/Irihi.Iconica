@@ -15,6 +15,14 @@ on:
         description: 'Pack Irihi.Iconica.IconPark'
         default: false
         type: boolean
+      Irihi_Iconica_Semi:
+        description: 'Pack Irihi.Iconica.Semi'
+        default: true
+        type: boolean
+      Irihi_Iconica_Semi_Lab:
+        description: 'Pack Irihi.Iconica.Semi.Lab'
+        default: true
+        type: boolean
       Irihi_Iconica_TDesign:
         description: 'Pack Irihi.Iconica.TDesign'
         default: true
@@ -25,6 +33,12 @@ on:
         type: boolean
         default: false
       Irihi_Iconica_IconPark:
+        type: boolean
+        default: true
+      Irihi_Iconica_Semi:
+        type: boolean
+        default: true
+      Irihi_Iconica_Semi_Lab:
         type: boolean
         default: true
       Irihi_Iconica_TDesign:
@@ -48,6 +62,14 @@ jobs:
       - name: Pack Irihi.Iconica.IconPark
         if: ${{ inputs.Irihi_Iconica_IconPark }}
         run: dotnet pack src/Irihi.Iconica.IconPark -o nugets
+
+      - name: Pack Irihi.Iconica.Semi
+        if: ${{ inputs.Irihi_Iconica_Semi }}
+        run: dotnet pack src/Irihi.Iconica.Semi -o nugets
+
+      - name: Pack Irihi.Iconica.Semi.Lab
+        if: ${{ inputs.Irihi_Iconica_Semi_Lab }}
+        run: dotnet pack src/Irihi.Iconica.Semi.Lab -o nugets
 
       - name: Pack Irihi.Iconica.TDesign
         if: ${{ inputs.Irihi_Iconica_TDesign }}

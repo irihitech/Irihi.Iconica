@@ -31,6 +31,8 @@
 
     <ItemGroup>
       <ProjectReference Include="..\..\src\Irihi.Iconica.IconPark\Irihi.Iconica.IconPark.csproj" />
+      <ProjectReference Include="..\..\src\Irihi.Iconica.Semi\Irihi.Iconica.Semi.csproj" />
+      <ProjectReference Include="..\..\src\Irihi.Iconica.Semi.Lab\Irihi.Iconica.Semi.Lab.csproj" />
       <ProjectReference Include="..\..\src\Irihi.Iconica.TDesign\Irihi.Iconica.TDesign.csproj" />
     </ItemGroup>
 </Project>
