@@ -8,7 +8,7 @@ public partial class IconInfo
 
     private static List<IconInfo> CreateSemiIconInfos()
     {
-        var list = new List<IconInfo>(607);
+        var list = new List<IconInfo>(611);
         list.AddRange(CreateSemiChunk_0000());
         list.AddRange(CreateSemiChunk_0001());
         list.AddRange(CreateSemiChunk_0002());
@@ -3907,6 +3907,50 @@ public partial class IconInfo
         },
         new IconInfo()
         {
+            Category = "Objects",
+            CategoryChinese = "物品",
+            ClassName = "Pin",
+            Name = "pin",
+            Title = "Pin",
+            Creator = () => new Irihi.Iconica.Semi.Icons.Pin(),
+            Keywords = ["pin", "Pin", "Pin", "pin", "Pin"],
+            IconType = typeof(Irihi.Iconica.Semi.Icons.Pin)
+        },
+        new IconInfo()
+        {
+            Category = "Objects",
+            CategoryChinese = "物品",
+            ClassName = "PinOff",
+            Name = "pin_off",
+            Title = "Pin Off",
+            Creator = () => new Irihi.Iconica.Semi.Icons.PinOff(),
+            Keywords = ["pin_off", "PinOff", "Pin Off", "pin_off", "PinOff"],
+            IconType = typeof(Irihi.Iconica.Semi.Icons.PinOff)
+        },
+        new IconInfo()
+        {
+            Category = "Objects",
+            CategoryChinese = "物品",
+            ClassName = "PinOffStroked",
+            Name = "pin_off_stroked",
+            Title = "Pin Off Stroked",
+            Creator = () => new Irihi.Iconica.Semi.Icons.PinOffStroked(),
+            Keywords = ["pin_off_stroked", "PinOffStroked", "Pin Off Stroked", "pin_off_stroked", "PinOffStroked"],
+            IconType = typeof(Irihi.Iconica.Semi.Icons.PinOffStroked)
+        },
+        new IconInfo()
+        {
+            Category = "Objects",
+            CategoryChinese = "物品",
+            ClassName = "PinStroked",
+            Name = "pin_stroked",
+            Title = "Pin Stroked",
+            Creator = () => new Irihi.Iconica.Semi.Icons.PinStroked(),
+            Keywords = ["pin_stroked", "PinStroked", "Pin Stroked", "pin_stroked", "PinStroked"],
+            IconType = typeof(Irihi.Iconica.Semi.Icons.PinStroked)
+        },
+        new IconInfo()
+        {
             Category = "Brands",
             CategoryChinese = "品牌",
             ClassName = "PipixiaLogo",
@@ -4389,6 +4433,10 @@ public partial class IconInfo
             Keywords = ["scissors_stroked", "ScissorsStroked", "Scissors Stroked", "scissors_stroked", "ScissorsStroked"],
             IconType = typeof(Irihi.Iconica.Semi.Icons.ScissorsStroked)
         },
+    ];
+
+    private static List<IconInfo> CreateSemiChunk_0004() =>
+    [
         new IconInfo()
         {
             Category = "Interface",
@@ -4433,10 +4481,6 @@ public partial class IconInfo
             Keywords = ["semi_logo", "SemiLogo", "Semi Logo", "semi_logo", "SemiLogo"],
             IconType = typeof(Irihi.Iconica.Semi.Icons.SemiLogo)
         },
-    ];
-
-    private static List<IconInfo> CreateSemiChunk_0004() =>
-    [
         new IconInfo()
         {
             Category = "Communication",
@@ -5493,6 +5537,10 @@ public partial class IconInfo
             Keywords = ["user_setting", "UserSetting", "User Setting", "user_setting", "UserSetting"],
             IconType = typeof(Irihi.Iconica.Semi.Icons.UserSetting)
         },
+    ];
+
+    private static List<IconInfo> CreateSemiChunk_0005() =>
+    [
         new IconInfo()
         {
             Category = "Basic",
@@ -5537,10 +5585,6 @@ public partial class IconInfo
             Keywords = ["version_stroked", "VersionStroked", "Version Stroked", "version_stroked", "VersionStroked"],
             IconType = typeof(Irihi.Iconica.Semi.Icons.VersionStroked)
         },
-    ];
-
-    private static List<IconInfo> CreateSemiChunk_0005() =>
-    [
         new IconInfo()
         {
             Category = "Photo&Video",
@@ -6597,6 +6641,10 @@ public partial class IconInfo
             Keywords = ["toast", "Toast", "Toast", "toast", "Toast"],
             IconType = typeof(Irihi.Iconica.Semi.Lab.Toast)
         },
+    ];
+
+    private static List<IconInfo> CreateSemiChunk_0006() =>
+    [
         new IconInfo()
         {
             Category = "Lab",
@@ -6641,10 +6689,6 @@ public partial class IconInfo
             Keywords = ["tree-select", "TreeSelect", "Tree Select", "tree-select", "TreeSelect"],
             IconType = typeof(Irihi.Iconica.Semi.Lab.TreeSelect)
         },
-    ];
-
-    private static List<IconInfo> CreateSemiChunk_0006() =>
-    [
         new IconInfo()
         {
             Category = "Lab",
