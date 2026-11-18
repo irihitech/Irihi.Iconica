@@ -32,6 +32,9 @@ on:
       Upload_to_NuGet:
         type: boolean
         default: false
+      Irihi_Iconica_Core:
+        type: boolean
+        default: true
       Irihi_Iconica_IconPark:
         type: boolean
         default: true
