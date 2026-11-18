@@ -261,7 +261,6 @@ public abstract class IconParkBase : Avalonia.Controls.Control
         context.FillRectangle(Background ?? Brushes.Transparent, Bounds);
         if (DrawingData == null) return;
         var mode = Mode;
-        Matrix.CreateRotation(1);
         var scale = new Vector(Bounds.Width / 48.0, Bounds.Height / 48.0);
         using (context.PushTransform(Matrix.CreateScale(scale)))
         {
