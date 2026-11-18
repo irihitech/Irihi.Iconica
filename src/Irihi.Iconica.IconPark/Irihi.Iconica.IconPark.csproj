@@ -6,7 +6,7 @@
         <LangVersion>latest</LangVersion>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
-        <Version>2.1.0</Version>
+        <Version>2.1.1</Version>
         <PackageId>Irihi.Iconica.IconPark</PackageId>
         <PackageIcon>irihi.png</PackageIcon>
         <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
