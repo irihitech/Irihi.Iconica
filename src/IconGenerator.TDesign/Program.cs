@@ -56,8 +56,8 @@ foreach (var svgFile in svgFiles)
         {
             ClassName = className,
             Name = iconName,
-            Category = meta?.Category ?? string.Empty,
-            CategoryCN = meta?.CategoryCN ?? string.Empty,
+            Category = meta?.Category ?? "Other",
+            CategoryCN = meta?.CategoryCN ?? "其他",
             Title = meta is { Keywords.Count: > 0 } ? meta.Keywords[0] : string.Empty,
             Keywords = meta?.Keywords ?? [],
         });

@@ -9,7 +9,7 @@ public partial class IconInfo
 
     private static List<IconInfo> CreateTDesignIconInfos()
     {
-        var list = new List<IconInfo>(2356);
+        var list = new List<IconInfo>(2358);
         list.AddRange(CreateTDesignChunk_0000());
         list.AddRange(CreateTDesignChunk_0001());
         list.AddRange(CreateTDesignChunk_0002());
@@ -5311,6 +5311,16 @@ public partial class IconInfo
         },
         new IconInfo()
         {
+            Category = "Other",
+            CategoryChinese = "其他",
+            ClassName = "Check1",
+            Name = "check-1",
+            Creator = () => new Irihi.Iconica.TDesign.Icons.Check1(),
+            Keywords = ["check-1", "Check1"],
+            IconType = typeof(Irihi.Iconica.TDesign.Icons.Check1)
+        },
+        new IconInfo()
+        {
             Category = "Alert",
             CategoryChinese = "警报",
             ClassName = "CheckCircleFilled",
@@ -6041,6 +6051,10 @@ public partial class IconInfo
             Keywords = ["城市", "城市群", "city-1", "City1"],
             IconType = typeof(Irihi.Iconica.TDesign.Icons.City1)
         },
+    ];
+
+    private static List<IconInfo> CreateTDesignChunk_0005() =>
+    [
         new IconInfo()
         {
             Category = "Buildings",
@@ -6053,10 +6067,6 @@ public partial class IconInfo
             Keywords = ["城市", "城市群", "city-10-filled", "City10Filled"],
             IconType = typeof(Irihi.Iconica.TDesign.Icons.City10Filled)
         },
-    ];
-
-    private static List<IconInfo> CreateTDesignChunk_0005() =>
-    [
         new IconInfo()
         {
             Category = "Buildings",
@@ -7241,6 +7251,10 @@ public partial class IconInfo
             Keywords = ["组件输入", "组件式输入", "component-input", "ComponentInput"],
             IconType = typeof(Irihi.Iconica.TDesign.Icons.ComponentInput)
         },
+    ];
+
+    private static List<IconInfo> CreateTDesignChunk_0006() =>
+    [
         new IconInfo()
         {
             Category = "Component",
@@ -7253,10 +7267,6 @@ public partial class IconInfo
             Keywords = ["组件布局", "组件排版", "component-layout-filled", "ComponentLayoutFilled"],
             IconType = typeof(Irihi.Iconica.TDesign.Icons.ComponentLayoutFilled)
         },
-    ];
-
-    private static List<IconInfo> CreateTDesignChunk_0006() =>
-    [
         new IconInfo()
         {
             Category = "Component",
@@ -8439,6 +8449,10 @@ public partial class IconInfo
             Keywords = ["删除", "删去", "垃圾桶", "delete-1", "Delete1"],
             IconType = typeof(Irihi.Iconica.TDesign.Icons.Delete1)
         },
+    ];
+
+    private static List<IconInfo> CreateTDesignChunk_0007() =>
+    [
         new IconInfo()
         {
             Category = "Action",
@@ -8451,10 +8465,6 @@ public partial class IconInfo
             Keywords = ["删除", "删去", "垃圾桶", "delete-filled", "DeleteFilled"],
             IconType = typeof(Irihi.Iconica.TDesign.Icons.DeleteFilled)
         },
-    ];
-
-    private static List<IconInfo> CreateTDesignChunk_0007() =>
-    [
         new IconInfo()
         {
             Category = "Alert",
@@ -9641,6 +9651,10 @@ public partial class IconInfo
             Keywords = ["曝光", "曝光量", "exposure", "Exposure"],
             IconType = typeof(Irihi.Iconica.TDesign.Icons.Exposure)
         },
+    ];
+
+    private static List<IconInfo> CreateTDesignChunk_0008() =>
+    [
         new IconInfo()
         {
             Category = "Action",
@@ -9653,10 +9667,6 @@ public partial class IconInfo
             Keywords = ["扩展", "拓展", "extension-filled", "ExtensionFilled"],
             IconType = typeof(Irihi.Iconica.TDesign.Icons.ExtensionFilled)
         },
-    ];
-
-    private static List<IconInfo> CreateTDesignChunk_0008() =>
-    [
         new IconInfo()
         {
             Category = "Action",
@@ -10845,6 +10855,10 @@ public partial class IconInfo
             Keywords = ["胶卷", "电影胶片", "film-1-filled", "Film1Filled"],
             IconType = typeof(Irihi.Iconica.TDesign.Icons.Film1Filled)
         },
+    ];
+
+    private static List<IconInfo> CreateTDesignChunk_0009() =>
+    [
         new IconInfo()
         {
             Category = "Media",
@@ -10857,10 +10871,6 @@ public partial class IconInfo
             Keywords = ["胶卷", "电影胶片", "film-1", "Film1"],
             IconType = typeof(Irihi.Iconica.TDesign.Icons.Film1)
         },
-    ];
-
-    private static List<IconInfo> CreateTDesignChunk_0009() =>
-    [
         new IconInfo()
         {
             Category = "Device",
@@ -12049,6 +12059,10 @@ public partial class IconInfo
             Keywords = ["表格", "表格形式", "form-filled", "FormFilled"],
             IconType = typeof(Irihi.Iconica.TDesign.Icons.FormFilled)
         },
+    ];
+
+    private static List<IconInfo> CreateTDesignChunk_0010() =>
+    [
         new IconInfo()
         {
             Category = "Component",
@@ -12061,10 +12075,6 @@ public partial class IconInfo
             Keywords = ["表格", "表单", "form", "Form"],
             IconType = typeof(Irihi.Iconica.TDesign.Icons.Form)
         },
-    ];
-
-    private static List<IconInfo> CreateTDesignChunk_0010() =>
-    [
         new IconInfo()
         {
             Category = "Design",
@@ -13253,6 +13263,10 @@ public partial class IconInfo
             Keywords = ["大于等于", "大于或等于", "greater-than-or-equal", "GreaterThanOrEqual"],
             IconType = typeof(Irihi.Iconica.TDesign.Icons.GreaterThanOrEqual)
         },
+    ];
+
+    private static List<IconInfo> CreateTDesignChunk_0011() =>
+    [
         new IconInfo()
         {
             Category = "Math",
@@ -13265,10 +13279,6 @@ public partial class IconInfo
             Keywords = ["大于", "greater-than", "GreaterThan"],
             IconType = typeof(Irihi.Iconica.TDesign.Icons.GreaterThan)
         },
-    ];
-
-    private static List<IconInfo> CreateTDesignChunk_0011() =>
-    [
         new IconInfo()
         {
             Category = "Foods",
@@ -14457,6 +14467,10 @@ public partial class IconInfo
             Keywords = ["苹果音乐播放器", "便携式音乐播放器", "ipod", "Ipod"],
             IconType = typeof(Irihi.Iconica.TDesign.Icons.Ipod)
         },
+    ];
+
+    private static List<IconInfo> CreateTDesignChunk_0012() =>
+    [
         new IconInfo()
         {
             Category = "Document",
@@ -14469,10 +14483,6 @@ public partial class IconInfo
             Keywords = ["日文矩形填充", "日文框填充", "日文文本框填充", "japanese-rectangle-filled", "JapaneseRectangleFilled"],
             IconType = typeof(Irihi.Iconica.TDesign.Icons.JapaneseRectangleFilled)
         },
-    ];
-
-    private static List<IconInfo> CreateTDesignChunk_0012() =>
-    [
         new IconInfo()
         {
             Category = "Document",
@@ -15375,6 +15385,8 @@ public partial class IconInfo
         },
         new IconInfo()
         {
+            Category = "Other",
+            CategoryChinese = "其他",
             ClassName = "ListNumbered",
             Name = "list-numbered",
             Creator = () => new Irihi.Iconica.TDesign.Icons.ListNumbered(),
@@ -15657,6 +15669,10 @@ public partial class IconInfo
             Keywords = ["锁定时间", "上锁时间", "lock-time-filled", "LockTimeFilled"],
             IconType = typeof(Irihi.Iconica.TDesign.Icons.LockTimeFilled)
         },
+    ];
+
+    private static List<IconInfo> CreateTDesignChunk_0013() =>
+    [
         new IconInfo()
         {
             Category = "Action",
@@ -15669,10 +15685,6 @@ public partial class IconInfo
             Keywords = ["锁定时间", "锁定期", "lock-time", "LockTime"],
             IconType = typeof(Irihi.Iconica.TDesign.Icons.LockTime)
         },
-    ];
-
-    private static List<IconInfo> CreateTDesignChunk_0013() =>
-    [
         new IconInfo()
         {
             Category = "Arrows",
@@ -16851,6 +16863,10 @@ public partial class IconInfo
             Keywords = ["地图已检查", "地图已核对", "map-checked-filled", "MapCheckedFilled"],
             IconType = typeof(Irihi.Iconica.TDesign.Icons.MapCheckedFilled)
         },
+    ];
+
+    private static List<IconInfo> CreateTDesignChunk_0014() =>
+    [
         new IconInfo()
         {
             Category = "Maps",
@@ -16863,10 +16879,6 @@ public partial class IconInfo
             Keywords = ["映射已检查", "映射检查过", "map-checked", "MapChecked"],
             IconType = typeof(Irihi.Iconica.TDesign.Icons.MapChecked)
         },
-    ];
-
-    private static List<IconInfo> CreateTDesignChunk_0014() =>
-    [
         new IconInfo()
         {
             Category = "Maps",
@@ -18055,6 +18067,10 @@ public partial class IconInfo
             Keywords = ["移动快捷方式", "手机快捷方式", "mobile-shortcut", "MobileShortcut"],
             IconType = typeof(Irihi.Iconica.TDesign.Icons.MobileShortcut)
         },
+    ];
+
+    private static List<IconInfo> CreateTDesignChunk_0015() =>
+    [
         new IconInfo()
         {
             Category = "Device",
@@ -18067,10 +18083,6 @@ public partial class IconInfo
             Keywords = ["手机振动", "手机震动模式", "mobile-vibrate-filled", "MobileVibrateFilled"],
             IconType = typeof(Irihi.Iconica.TDesign.Icons.MobileVibrateFilled)
         },
-    ];
-
-    private static List<IconInfo> CreateTDesignChunk_0015() =>
-    [
         new IconInfo()
         {
             Category = "Device",
@@ -19259,6 +19271,10 @@ public partial class IconInfo
             Keywords = ["圆形数字3填充", "数字3圆圈填充", "圆圈数字3填充", "numbers-circle-3-filled", "NumbersCircle3Filled"],
             IconType = typeof(Irihi.Iconica.TDesign.Icons.NumbersCircle3Filled)
         },
+    ];
+
+    private static List<IconInfo> CreateTDesignChunk_0016() =>
+    [
         new IconInfo()
         {
             Category = "Numbers",
@@ -19271,10 +19287,6 @@ public partial class IconInfo
             Keywords = ["圆形数字3", "数字3圆圈", "圆圈数字3", "numbers-circle-3", "NumbersCircle3"],
             IconType = typeof(Irihi.Iconica.TDesign.Icons.NumbersCircle3)
         },
-    ];
-
-    private static List<IconInfo> CreateTDesignChunk_0016() =>
-    [
         new IconInfo()
         {
             Category = "Numbers",
@@ -20463,6 +20475,10 @@ public partial class IconInfo
             Keywords = ["播放圆形描边", "圆形循环描边", "play-circle-stroke-filled", "PlayCircleStrokeFilled"],
             IconType = typeof(Irihi.Iconica.TDesign.Icons.PlayCircleStrokeFilled)
         },
+    ];
+
+    private static List<IconInfo> CreateTDesignChunk_0017() =>
+    [
         new IconInfo()
         {
             Category = "Media",
@@ -20475,10 +20491,6 @@ public partial class IconInfo
             Keywords = ["圆圈播放笔触", "圆形播放描边", "play-circle-stroke", "PlayCircleStroke"],
             IconType = typeof(Irihi.Iconica.TDesign.Icons.PlayCircleStroke)
         },
-    ];
-
-    private static List<IconInfo> CreateTDesignChunk_0017() =>
-    [
         new IconInfo()
         {
             Category = "Media",
@@ -21141,6 +21153,16 @@ public partial class IconInfo
         },
         new IconInfo()
         {
+            Category = "Other",
+            CategoryChinese = "其他",
+            ClassName = "Remove1",
+            Name = "remove-1",
+            Creator = () => new Irihi.Iconica.TDesign.Icons.Remove1(),
+            Keywords = ["remove-1", "Remove1"],
+            IconType = typeof(Irihi.Iconica.TDesign.Icons.Remove1)
+        },
+        new IconInfo()
+        {
             Category = "Action",
             CategoryChinese = "行动",
             ClassName = "Remove",
@@ -21651,6 +21673,10 @@ public partial class IconInfo
             Keywords = ["保存", "存储", "save-filled", "SaveFilled"],
             IconType = typeof(Irihi.Iconica.TDesign.Icons.SaveFilled)
         },
+    ];
+
+    private static List<IconInfo> CreateTDesignChunk_0018() =>
+    [
         new IconInfo()
         {
             Category = "Device",
@@ -21675,10 +21701,6 @@ public partial class IconInfo
             Keywords = ["储蓄罐", "saving-pot-filled", "SavingPotFilled"],
             IconType = typeof(Irihi.Iconica.TDesign.Icons.SavingPotFilled)
         },
-    ];
-
-    private static List<IconInfo> CreateTDesignChunk_0018() =>
-    [
         new IconInfo()
         {
             Category = "Action",
@@ -22855,6 +22877,10 @@ public partial class IconInfo
             Keywords = ["微笑", "笑容", "smile", "Smile"],
             IconType = typeof(Irihi.Iconica.TDesign.Icons.Smile)
         },
+    ];
+
+    private static List<IconInfo> CreateTDesignChunk_0019() =>
+    [
         new IconInfo()
         {
             Category = "Emoji",
@@ -22879,10 +22905,6 @@ public partial class IconInfo
             Keywords = ["嘲笑", "讥讽", "sneer", "Sneer"],
             IconType = typeof(Irihi.Iconica.TDesign.Icons.Sneer)
         },
-    ];
-
-    private static List<IconInfo> CreateTDesignChunk_0019() =>
-    [
         new IconInfo()
         {
             Category = "Weather",
@@ -24059,6 +24081,10 @@ public partial class IconInfo
             Keywords = ["系统搜索", "系统查找", "system-search", "SystemSearch"],
             IconType = typeof(Irihi.Iconica.TDesign.Icons.SystemSearch)
         },
+    ];
+
+    private static List<IconInfo> CreateTDesignChunk_0020() =>
+    [
         new IconInfo()
         {
             Category = "System",
@@ -24083,10 +24109,6 @@ public partial class IconInfo
             Keywords = ["系统设置", "系统配置", "system-setting", "SystemSetting"],
             IconType = typeof(Irihi.Iconica.TDesign.Icons.SystemSetting)
         },
-    ];
-
-    private static List<IconInfo> CreateTDesignChunk_0020() =>
-    [
         new IconInfo()
         {
             Category = "System",
@@ -25263,6 +25285,10 @@ public partial class IconInfo
             Keywords = ["雷暴后的晴天", "晴朗天气后的雷暴", "thunderstorm-sunny-filled", "ThunderstormSunnyFilled"],
             IconType = typeof(Irihi.Iconica.TDesign.Icons.ThunderstormSunnyFilled)
         },
+    ];
+
+    private static List<IconInfo> CreateTDesignChunk_0021() =>
+    [
         new IconInfo()
         {
             Category = "Weather",
@@ -25287,10 +25313,6 @@ public partial class IconInfo
             Keywords = ["雷暴", "暴风雨", "thunderstorm", "Thunderstorm"],
             IconType = typeof(Irihi.Iconica.TDesign.Icons.Thunderstorm)
         },
-    ];
-
-    private static List<IconInfo> CreateTDesignChunk_0021() =>
-    [
         new IconInfo()
         {
             Category = "File",
@@ -26467,6 +26489,10 @@ public partial class IconInfo
             Keywords = ["用户向右箭头", "用户右箭头", "user-arrow-right-filled", "UserArrowRightFilled"],
             IconType = typeof(Irihi.Iconica.TDesign.Icons.UserArrowRightFilled)
         },
+    ];
+
+    private static List<IconInfo> CreateTDesignChunk_0022() =>
+    [
         new IconInfo()
         {
             Category = "User",
@@ -26491,10 +26517,6 @@ public partial class IconInfo
             Keywords = ["用户向上箭头", "用户上箭头", "user-arrow-up-filled", "UserArrowUpFilled"],
             IconType = typeof(Irihi.Iconica.TDesign.Icons.UserArrowUpFilled)
         },
-    ];
-
-    private static List<IconInfo> CreateTDesignChunk_0022() =>
-    [
         new IconInfo()
         {
             Category = "User",
@@ -27671,6 +27693,10 @@ public partial class IconInfo
             Keywords = ["图像视图", "图片显示", "图像界面", "view-image", "ViewImage"],
             IconType = typeof(Irihi.Iconica.TDesign.Icons.ViewImage)
         },
+    ];
+
+    private static List<IconInfo> CreateTDesignChunk_0023() =>
+    [
         new IconInfo()
         {
             Category = "Action",
@@ -27695,10 +27721,6 @@ public partial class IconInfo
             Keywords = ["增强现实查看", "扩增实境视野", "view-in-ar", "ViewInAr"],
             IconType = typeof(Irihi.Iconica.TDesign.Icons.ViewInAr)
         },
-    ];
-
-    private static List<IconInfo> CreateTDesignChunk_0023() =>
-    [
         new IconInfo()
         {
             Category = "Document",

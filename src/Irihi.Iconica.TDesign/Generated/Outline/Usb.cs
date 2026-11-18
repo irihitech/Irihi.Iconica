@@ -16,7 +16,7 @@ public class Usb : TDesignIconBase
         },
         new PathDrawingElement()
         {
-            FillIndex = 0,
+            FillIndex = 3,
             Data = StreamGeometry.Parse(
                 "M5 3H19V12H5V3Z"),
         },
